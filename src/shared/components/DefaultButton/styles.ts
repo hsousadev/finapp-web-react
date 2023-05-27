@@ -16,4 +16,13 @@ export const Container = styled.button`
     color: var(--Black-900);
     font-weight: bold;
   }
+
+  @media (max-width: 720px) {
+    gap: 4px;
+    padding: 8px;
+  }
+
+  @media (max-width: 540px) {
+    width: 80%;
+  }
 `;

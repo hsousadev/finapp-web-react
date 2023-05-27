@@ -8,4 +8,9 @@ export const Container = styled.div`
   width: 100%;
 
   padding-top: 32px;
+
+  @media (max-width: 540px) {
+    justify-content: center;
+    flex-direction: column;
+  }
 `;

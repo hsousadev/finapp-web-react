@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 
   gap: 16px;
   padding: 32px;
@@ -12,6 +12,7 @@ export const Container = styled.div`
   border: 2px solid var(--Black-800);
 
   width: fit-content;
+  min-width: 320px;
 
   div {
     display: flex;
@@ -19,9 +20,21 @@ export const Container = styled.div`
     justify-content: space-between;
     flex-direction: column;
     gap: 8px;
+
+    h2 {
+      font-weight: bold;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
   }
-  
-  h2 {
-    font-weight: bold;
+
+  @media (max-width: 840px) {
+    padding: 16px;
+  }
+
+  @media (max-width: 540px) {
+    width: 90%;
+    min-width: fit-content;
   }
 `;

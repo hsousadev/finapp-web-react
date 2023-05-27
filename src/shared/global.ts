@@ -56,6 +56,14 @@ export const GlobalStyles = createGlobalStyle`
     @media(max-width: 425px) {
       padding: 0 16px;
     }
+
+    @media(max-width: 1380px) {
+      zoom: 80%;
+    }
+
+    @media(max-width: 1232px) {
+      zoom: 100%;
+    }
   }
 
   body {

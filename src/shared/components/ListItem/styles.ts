@@ -35,6 +35,20 @@ export const Container = styled.div`
     gap: 8px;
     h4 {
       font-weight: bold;
+      white-space: nowrap;
+    }
+  }
+
+  @media (max-width: 540px) {
+    gap: 4px;
+    padding: 8px;
+    align-items: center;
+  }
+
+  @media (max-width: 320px) {
+    img {
+      height: 18px;
+      width: 18px;
     }
   }
 `;

@@ -1,11 +1,13 @@
-import { ListItem } from "@/shared/components/ListItem";
+import { useContext } from "react";
+import { HomeContext } from "@/pages";
 
-import chartLineUp from "@/shared/assets/icons/ChartLineUp.svg";
-import trendDown from "@/shared/assets/icons/TrendDown.svg";
+import { ListItem } from "@/shared/components/ListItem";
 
 import { Container } from "./styles";
 
 export function GeneralStatement() {
+  const { allStatements } = useContext(HomeContext);
+
   return (
     <Container>
       <div className="head">
@@ -13,21 +15,15 @@ export function GeneralStatement() {
       </div>
 
       <div className="list">
-        <ListItem
-          icon={trendDown}
-          text="Conta de Luz · R$300 · 15 de Maio de 2023"
-          expense={1200}
-        />
-        <ListItem
-          icon={trendDown}
-          text="Conta de Luz · R$300 · 15 de Maio de 2023"
-          expense={1200}
-        />
-         <ListItem
-          icon={trendDown}
-          text="Conta de Luz · R$300 · 15 de Maio de 2023"
-          expense={1200}
-        />
+        {allStatements.map((statement) => (
+          <ListItem
+            key={statement.id}
+            text={statement.description}
+            amount={statement.amount}
+            type={statement.type}
+            createdAt={statement.created_at}
+          />
+        ))}
       </div>
     </Container>
   );
