@@ -9,6 +9,13 @@ export const Container = styled.div`
 
   padding-top: 32px;
 
+  .right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
   @media (max-width: 540px) {
     justify-content: center;
     flex-direction: column;

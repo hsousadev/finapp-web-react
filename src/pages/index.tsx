@@ -3,7 +3,6 @@ import { createContext } from "react";
 import Head from "next/head";
 
 import { Home } from "./Home";
-import { TopBar } from "@/shared/components/TopBar";
 import { HomeProps } from "@/shared/types/HomeProps";
 
 export const HomeContext = createContext<HomeProps>({
@@ -43,7 +42,6 @@ export default function Index({
       </Head>
       <main>
         <HomeContext.Provider value={{ allBalance, allStatements, accounts }}>
-          <TopBar />
           <Home />
         </HomeContext.Provider>
       </main>

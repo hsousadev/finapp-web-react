@@ -69,6 +69,7 @@ export const GlobalStyles = createGlobalStyle`
   body {
     max-width: 1232px;
     width: 100%;
+    background: var(--Black-900) !important;
   }
 
   h1, h2, h3, h4, p {

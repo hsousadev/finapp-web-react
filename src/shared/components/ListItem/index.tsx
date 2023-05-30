@@ -20,6 +20,7 @@ interface ListItemProps {
   type?: string;
   amount?: number;
   createdAt?: Date;
+  onClick: () => void;
 }
 
 export function ListItem({
@@ -30,6 +31,7 @@ export function ListItem({
   type,
   amount,
   createdAt,
+  onClick,
 }: ListItemProps) {
   dayjs.locale(ptBR);
 
@@ -53,7 +55,7 @@ export function ListItem({
     );
 
   return (
-    <Container>
+    <Container onClick={onClick}>
       <div className="icon-and-name">
         {icon ? (
           <Image src={icon} alt="Image" width={24} height={24} />

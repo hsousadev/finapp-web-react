@@ -9,11 +9,12 @@ import trendDown from "@/shared/assets/icons/TrendDown.svg";
 import { Container } from "./styles";
 
 interface InfoValueCardProps {
+  accountName: string;
   value: number;
   type: string;
 }
 
-export function InfoValueCard({ type, value }: InfoValueCardProps) {
+export function InfoValueCard({ type, value, accountName }: InfoValueCardProps) {
   const windowSize = useWindowSize();
   const isMobile = windowSize.windowWidth <= 720;
 
@@ -38,8 +39,12 @@ export function InfoValueCard({ type, value }: InfoValueCardProps) {
       )}
 
       <div>
-        <h4>Balanço total</h4>
-        {type === "income" ? <h2>R${formmatedValue.substring(0, 18)}</h2> : <h2>-R${formmatedValue.substring(0, 18)}</h2>}
+        <h4>Balanço total {accountName && `${accountName}`}</h4>
+        {type === "income" ? (
+          <h2>R${formmatedValue.substring(0, 18)}</h2>
+        ) : (
+          <h2>-R${formmatedValue.substring(0, 18)}</h2>
+        )}
       </div>
     </Container>
   );
