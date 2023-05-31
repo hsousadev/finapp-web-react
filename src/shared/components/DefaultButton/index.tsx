@@ -5,13 +5,16 @@ import { Container } from "./styles";
 interface DefaultButtonProps {
   icon: string;
   title: string;
+  onClick?: () => void;
 }
 
-export function DefaultButton({ icon, title }: DefaultButtonProps) {
+export function DefaultButton({ icon, title, onClick }: DefaultButtonProps) {
   return (
     <Container>
-      <Image src={icon} alt="" />
-      <h4>{title}</h4>
+      <button onClick={onClick}>
+        <Image src={icon} alt="" />
+        <h4>{title}</h4>
+      </button>
     </Container>
   );
 }

@@ -5,7 +5,7 @@ export interface AccountProps {
     id: string;
     name: string;
     logoImg: string;
-    statement: Array<StatementProps>;
+    statements: Array<StatementProps>;
   };
   balance: number;
 }

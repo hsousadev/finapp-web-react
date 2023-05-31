@@ -106,6 +106,18 @@ export const GlobalStyles = createGlobalStyle`
     font-size: 14px;
   }
 
+  input {
+    appearance: none;
+    border: none;
+    background-color: transparent;
+    outline: none;
+
+    font-family: "Inter";
+    font-size: 16px;
+    color: var(--White);
+    width: 100%;
+  }
+
   button {
     cursor: pointer;
     outline: none;

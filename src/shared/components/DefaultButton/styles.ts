@@ -1,28 +1,40 @@
 import styled from "styled-components";
 
-export const Container = styled.button`
+export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
 
-  width: fit-content;
-  gap: 8px;
-  padding: 8px 16px;
-  border-radius: 16px;
-
-  background-color: var(--Green-700);
-
-  h4 {
-    color: var(--Black-900);
-    font-weight: bold;
+  button:hover {
+    opacity: 80%;
   }
 
-  @media (max-width: 720px) {
-    gap: 4px;
-    padding: 8px;
-  }
+  button {
+    transition: all 0.4s ease-in-out;
 
-  @media (max-width: 540px) {
-    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: fit-content;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 16px;
+
+    background-color: var(--Green-700);
+
+    h4 {
+      color: var(--Black-900);
+      font-weight: bold;
+    }
+
+    @media (max-width: 720px) {
+      gap: 4px;
+      padding: 8px;
+    }
+
+    @media (max-width: 540px) {
+      width: 80%;
+    }
   }
 `;

@@ -20,7 +20,7 @@ interface ListItemProps {
   type?: string;
   amount?: number;
   createdAt?: Date;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 export function ListItem({

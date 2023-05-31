@@ -12,7 +12,6 @@ export const Container = styled.div`
   border: 2px solid var(--Black-800);
 
   width: fit-content;
-  min-width: 320px;
 
   div {
     display: flex;
@@ -33,8 +32,5 @@ export const Container = styled.div`
     padding: 16px;
   }
 
-  @media (max-width: 540px) {
-    width: 90%;
-    min-width: fit-content;
-  }
+
 `;

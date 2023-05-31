@@ -1,4 +1,8 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
+interface ContainerProps {
+  color: string;
+}
 
 export const Container = styled.button`
   transition: all 0.4s ease-in-out;
@@ -8,8 +12,16 @@ export const Container = styled.button`
   justify-content: center;
 
   padding: 8px;
-  background-color: var(--Black-800);
   border-radius: 16px;
+
+  ${(props) =>
+    props.color
+      ? css`
+          background-color: ${props.color};
+        `
+      : css`
+          background-color: var(--Black-800);
+        `}
 
   :hover {
     opacity: 50%;

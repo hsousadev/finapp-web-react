@@ -1,3 +1,5 @@
+import { useRouter } from "next/router";
+
 import { DefaultButton } from "@/shared/components/DefaultButton";
 import { InfoValueCard } from "@/shared/components/InfoValueCard";
 
@@ -12,6 +14,10 @@ interface PanelProps {
 }
 
 export function Panel({ accountName, balance, expenses }: PanelProps) {
+  const router = useRouter();
+
+  const isHome = router.pathname === "/";
+
   return (
     <Container>
       <div className="incomes-and-expenses">
@@ -27,7 +33,11 @@ export function Panel({ accountName, balance, expenses }: PanelProps) {
         />
       </div>
 
-      <DefaultButton icon={plus} title="Adicionar instituição" />
+      {isHome ? (
+        <DefaultButton icon={plus} title="Adicionar instituição" />
+      ) : (
+        <DefaultButton icon={plus} title="Nova operação" />
+      )}
     </Container>
   );
 }

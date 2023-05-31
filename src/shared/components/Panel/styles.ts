@@ -26,6 +26,7 @@ export const Container = styled.div`
   @media (max-width: 940px) {
     .incomes-and-expenses {
       flex-direction: column;
+      align-items: flex-start;
     }
   }
 
@@ -38,6 +39,7 @@ export const Container = styled.div`
 
     .incomes-and-expenses {
       flex-direction: column;
+      align-items: center;
     }
   }
 `;
