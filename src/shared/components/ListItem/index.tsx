@@ -69,7 +69,7 @@ export function ListItem({
           {isMobile
             ? text.substring(0, 25) + (text.length > 25 ? "..." : "")
             : text}{" "}
-          {createdAt && dayjs(createdAt).format("DD/MM/YYYY")}
+          <text>{createdAt && dayjs(createdAt).format("DD/MM/YYYY")}</text>
         </h4>
       </div>
 

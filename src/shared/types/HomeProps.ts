@@ -3,6 +3,7 @@ import { StatementProps } from "./StatementProps";
 
 export interface HomeProps {
   allBalance: number;
-  accounts: Array<AccountProps>;
+  allExpenses: number;
   allStatements: Array<StatementProps>;
+  accounts: Array<AccountProps>;
 }

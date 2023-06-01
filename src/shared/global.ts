@@ -1,6 +1,32 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
+  /* Track */
+  ::-webkit-scrollbar {
+    width: 10px; /* Width of the entire scrollbar */
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--Black-800); /* Color of the scrollbar handle */
+    border-radius: 5px; /* Rounded corners */
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color on hover */
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: rgba(36, 36, 36, 0.25); /* Color of the track */
+  }
+
+  /* Track on hover */
+  ::-webkit-scrollbar-track:hover {
+    background: rgba(36, 36, 36, 0.25); /* Color on hover */
+  }
+
   :root {
     --Max-content-width: 1240px;
 
@@ -14,6 +40,8 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   html {
+    transition: all 0.4s ease-in-out;
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -112,10 +140,15 @@ export const GlobalStyles = createGlobalStyle`
     background-color: transparent;
     outline: none;
 
+    gap: 4px;
+    border: 1px solid var(--Black-800);
+    padding: 12px 16px;
+    border-radius: 16px;
+    color: var(--White);
+
     font-family: "Inter";
     font-size: 16px;
     color: var(--White);
-    width: 100%;
   }
 
   button {

@@ -2,36 +2,37 @@ import { createContext } from "react";
 
 import Head from "next/head";
 
-import { Home } from "./Home";
+import { Home } from "./home";
 import { HomeProps } from "@/shared/types/HomeProps";
 
 export const HomeContext = createContext<HomeProps>({
   allBalance: 0,
+  allExpenses: 0,
   allStatements: [],
   accounts: [],
 });
 
 export async function getServerSideProps() {
-  // Get All Balance
-  const getAllBalance = await fetch("http://localhost:3333/balance/all");
-  const allBalance = await getAllBalance.json();
+  const reqAllBalance = await fetch("http://localhost:3333/balance/all");
+  const allBalance = await reqAllBalance.json();
 
-  // Get All Accounts
-  const getAccounts = await fetch("http://localhost:3333/accounts");
-  const accounts = await getAccounts.json();
+  const reqAllExpenses = await fetch("http://localhost:3333/expenses/all");
+  const allExpenses = await reqAllExpenses.json();
 
-  // Get All Statements
+  const reqAccounts = await fetch("http://localhost:3333/accounts");
+  const accounts = await reqAccounts.json();
+
   const getAllStatements = await fetch("http://localhost:3333/statement/all");
   const allStatements = await getAllStatements.json();
 
-  // Pass data to the page via props
-  return { props: { allBalance, accounts, allStatements } };
+  return { props: { allBalance, accounts, allStatements, allExpenses } };
 }
 
 export default function Index({
   allBalance,
   accounts,
   allStatements,
+  allExpenses,
 }: HomeProps) {
   return (
     <>
@@ -41,7 +42,9 @@ export default function Index({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <main>
-        <HomeContext.Provider value={{ allBalance, allStatements, accounts }}>
+        <HomeContext.Provider
+          value={{ allBalance, allStatements, accounts, allExpenses }}
+        >
           <Home />
         </HomeContext.Provider>
       </main>

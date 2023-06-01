@@ -9,12 +9,12 @@ import { Container } from "./styles";
 import { TopBar } from "@/shared/components/TopBar";
 
 export function Home() {
-  const { allBalance, allStatements } = useContext(HomeContext);
+  const { allBalance, allStatements, allExpenses } = useContext(HomeContext);
 
   return (
     <Container>
-      <TopBar balance={allBalance} />
-      <Panel balance={allBalance} />
+      <TopBar balance={allBalance} expenses={allExpenses} />
+      <Panel balance={allBalance} expenses={allExpenses} />
       <Institutions />
       <StatementList name="Extrato Geral" statement={allStatements} />
     </Container>

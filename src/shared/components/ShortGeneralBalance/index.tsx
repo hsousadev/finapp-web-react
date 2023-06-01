@@ -1,6 +1,3 @@
-import { useContext } from "react";
-import { HomeContext } from "@/pages";
-
 import Image from "next/image";
 
 import { Container } from "./styles";
@@ -26,7 +23,7 @@ export function ShortGeneralBalance({
 
       <div className="box">
         <Image src={trendDown} alt="" />
-        <h4>-{expenses}</h4>
+        <h4>-R${expenses}</h4>
       </div>
     </Container>
   );

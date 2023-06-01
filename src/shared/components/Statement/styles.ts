@@ -11,7 +11,7 @@ export const Container = styled.div`
 
   .head {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
 
     .search-by-date {
@@ -21,7 +21,7 @@ export const Container = styled.div`
       gap: 8px;
 
       p {
-        color: var(--Red-100)
+        color: var(--Red-100);
       }
 
       h4 {
@@ -29,17 +29,14 @@ export const Container = styled.div`
       }
 
       input {
-        gap: 4px;
-        border: 1px solid var(--Black-800);
-        padding: 12px 16px;
-        border-radius: 16px;
         width: 128px;
-        color: var(--White);
       }
     }
   }
 
   .list {
     width: 100%;
+    height: 248px;
+    overflow-y: scroll;
   }
 `;

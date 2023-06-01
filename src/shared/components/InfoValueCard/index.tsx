@@ -14,15 +14,20 @@ interface InfoValueCardProps {
   type: string;
 }
 
-export function InfoValueCard({ type, value, accountName }: InfoValueCardProps) {
+export function InfoValueCard({
+  type,
+  value,
+  accountName,
+}: InfoValueCardProps) {
   const windowSize = useWindowSize();
   const isMobile = windowSize.windowWidth <= 720;
 
   const formmatedValue = formmatedNumber(value);
+  const isIncome = type === "income";
 
   return (
     <Container>
-      {type === "income" ? (
+      {isIncome ? (
         <Image
           src={handCoins}
           alt=""
@@ -39,8 +44,11 @@ export function InfoValueCard({ type, value, accountName }: InfoValueCardProps) 
       )}
 
       <div>
-        <h4>Balanço total {accountName && `${accountName}`}</h4>
-        {type === "income" ? (
+        <h4>
+          {isIncome ? "Balanço" : "Gastos"}{" "}
+          <strong>{accountName ? `${accountName}` : "total"}</strong>
+        </h4>
+        {isIncome ? (
           <h2>R${formmatedValue.substring(0, 18)}</h2>
         ) : (
           <h2>-R${formmatedValue.substring(0, 18)}</h2>

@@ -16,5 +16,7 @@ export const Container = styled.div`
 
   .list {
     width: 100%;
+    height: 248px;
+    overflow-y: scroll;
   }
 `;

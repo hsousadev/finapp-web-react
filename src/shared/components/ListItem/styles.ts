@@ -10,7 +10,7 @@ export const Container = styled.div`
 
   padding: 16px;
   border-radius: 16px;
-  margin-bottom: 8px;
+  margin: 0 8px 8px 0;
 
   background: rgba(36, 36, 36, 0.25);
 
@@ -29,6 +29,10 @@ export const Container = styled.div`
 
   .icon-and-name {
     gap: 16px;
+
+    text {
+      opacity: 25%;
+    }
   }
 
   .values {

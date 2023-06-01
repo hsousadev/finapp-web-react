@@ -3,9 +3,11 @@ import { useEffect, useState } from "react";
 
 import { ListItem } from "@/shared/components/ListItem";
 import { StatementProps } from "@/shared/types/StatementProps";
+import x from "@/shared/assets/icons/X.svg";
 
 import { Container } from "./styles";
 import { AccountProps } from "@/shared/types/AccountProps";
+import { ShortButton } from "../ShortButton";
 
 interface StatementListProps {
   name: string;
@@ -22,19 +24,24 @@ export function StatementList({
   const isHome = router.pathname === "/";
   const accountId = account?.data.id;
 
+  const [showClearButton, setShowClearButton] = useState(false);
   const [date, setDate] = useState<string>("");
   const [statementData, setStatementData] =
     useState<Array<StatementProps>>(statement);
-  const [notFoundDateMessage, setNotFoundDateMessage] = useState(false);
+
+  function handleClearButton() {
+    setDate("");
+    setShowClearButton(false);
+  }
 
   useEffect(() => {
     async function getStatementByDate() {
-      setNotFoundDateMessage(false);
-
       if (!date) {
         setStatementData(statement);
         return;
       }
+
+      setShowClearButton(true);
 
       if (accountId) {
         const reqStatementAccountByDate = await fetch(
@@ -63,10 +70,10 @@ export function StatementList({
         <h2>{name}</h2>
 
         <div className="search-by-date">
-          {notFoundDateMessage && (
-            <p>Nenhum extrato encontrado com esta data.</p>
-          )}
           <h4>Pesquisar por data:</h4>
+          {showClearButton && (
+            <ShortButton icon={x} onClick={handleClearButton} />
+          )}
           <label htmlFor="dateInput" />
           <input
             type="date"
