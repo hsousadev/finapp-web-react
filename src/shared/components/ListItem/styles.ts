@@ -30,7 +30,7 @@ export const Container = styled.div`
   .icon-and-name {
     gap: 16px;
 
-    text {
+    strong {
       opacity: 25%;
     }
   }

@@ -3,18 +3,12 @@ import { parseCookies } from "nookies";
 
 import { Hero } from "./components/Hero";
 
-import bank from "@/shared/assets/icons/Bank.svg";
-import floppyDisk from "@/shared/assets/icons/FloppyDisk.svg";
-
 import { Panel } from "@/shared/components/Panel";
-import { Modal } from "@/shared/components/Modal";
 import { TopBar } from "@/shared/components/TopBar";
 import { AccountProps } from "@/shared/types/AccountProps";
 import { StatementList } from "@/shared/components/Statement";
-import { InputWithLabel } from "@/shared/components/InputWithLabel";
 
 import { Container } from "./styles";
-import { DefaultButton } from "@/shared/components/DefaultButton";
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const cookies = parseCookies(context);
@@ -55,7 +49,11 @@ export default function AccountPage({
   return (
     <Container>
       <TopBar balance={allBalance} expenses={allExpenses} />
-      <Hero logoImg={account.data.logoImg} name={account.data.name} />
+      <Hero
+        logoImg={account.data.logoImg}
+        name={account.data.name}
+        id={account.data.id}
+      />
       <Panel
         balance={account.balance}
         expenses={accountExpenses}

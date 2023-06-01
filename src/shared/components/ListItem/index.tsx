@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
 
 import useWindowSize from "@/shared/utils/useWindowSize";
@@ -11,6 +12,7 @@ import dayjs from "dayjs";
 import ptBR from "dayjs/locale/pt-br";
 
 import { Container } from "./styles";
+import { useState } from "react";
 
 interface ListItemProps {
   icon?: string;
@@ -34,7 +36,7 @@ export function ListItem({
   onClick,
 }: ListItemProps) {
   dayjs.locale(ptBR);
-
+  
   const windowSize = useWindowSize();
   const isMobile = windowSize.windowWidth <= 425;
 
@@ -44,6 +46,8 @@ export function ListItem({
   const formmatedExpense = expense && formmatedNumber(expense).substring(0, 18);
   const formmatedAmount = amount && formmatedNumber(amount).substring(0, 18);
   const formmatedIncome = income && formmatedNumber(income).substring(0, 18);
+
+
 
   const statementItem =
     type === "credit" ? (
@@ -58,18 +62,18 @@ export function ListItem({
     <Container onClick={onClick}>
       <div className="icon-and-name">
         {icon ? (
-          <Image src={icon} alt="Image" width={24} height={24} />
+          <img src={icon} alt="Image" width={24} height={24} />
         ) : type ? (
           statementItem
         ) : (
-          <Image src={bank} alt="Image" width={24} height={24} />
+          <img src={bank} alt="Image" width={24} height={24} />
         )}
 
         <h4>
           {isMobile
             ? text.substring(0, 25) + (text.length > 25 ? "..." : "")
             : text}{" "}
-          <text>{createdAt && dayjs(createdAt).format("DD/MM/YYYY")}</text>
+          <strong>{createdAt && dayjs(createdAt).format("DD/MM/YYYY")}</strong>
         </h4>
       </div>
 

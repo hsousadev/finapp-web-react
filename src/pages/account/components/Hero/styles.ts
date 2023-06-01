@@ -39,4 +39,24 @@ export const Container = styled.div`
       gap: 8px;
     }
   }
+
+  .account-edit-modal {
+    .inputs {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+
+      width: 100%;
+      gap: 32px;
+    }
+
+    .buttons {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      width: 100%;
+    }
+  }
 `;

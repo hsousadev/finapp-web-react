@@ -3,12 +3,13 @@ import { Container, Content } from "./styles";
 
 interface ModalProps {
   children: ReactNode;
+  className?: string;
 }
 
-export function Modal({ children }: ModalProps) {
+export function Modal({ children, className }: ModalProps) {
   return (
     <Container>
-      <Content>{children}</Content>
+      <Content className={className}>{children}</Content>
     </Container>
   );
 }

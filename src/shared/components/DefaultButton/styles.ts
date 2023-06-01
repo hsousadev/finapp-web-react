@@ -1,6 +1,11 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export const Container = styled.div`
+interface ContainerProps {
+  btnColor?: string;
+  fontColor?: string;
+}
+
+export const Container = styled.div<ContainerProps>`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -21,11 +26,25 @@ export const Container = styled.div`
     padding: 8px 16px;
     border-radius: 16px;
 
-    background-color: var(--Green-700);
+    ${(props) =>
+      props.btnColor
+        ? css`
+            background-color: ${props.btnColor};
+          `
+        : css`
+            background-color: var(--Green-700);
+          `}
 
     h4 {
-      color: var(--Black-900);
       font-weight: bold;
+      ${(props) =>
+        props.fontColor
+          ? css`
+              color: ${props.fontColor};
+            `
+          : css`
+              color: var(--Black-900);
+            `}
     }
 
     @media (max-width: 720px) {

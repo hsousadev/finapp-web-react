@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['vetores.org/d'],
+    domains: ['*'],
   },
 }
 
