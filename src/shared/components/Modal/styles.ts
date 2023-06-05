@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-
   width: 100vw;
   height: 100vh;
 
@@ -31,4 +30,45 @@ export const Content = styled.div`
   background: var(--Black-900);
   box-shadow: 0px 4px 64px 20px rgba(36, 36, 36, 0.2);
   border-radius: 32px;
+
+  .inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    width: 100%;
+    gap: 32px;
+  }
+
+  .buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+  }
+
+  .warning {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+
+    width: 100%;
+
+    h3 {
+      font-weight: bold;
+      text-align: center;
+    }
+  }
+
+  .loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+  }
 `;

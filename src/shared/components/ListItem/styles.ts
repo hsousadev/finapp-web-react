@@ -14,6 +14,10 @@ export const Container = styled.div`
 
   background: rgba(36, 36, 36, 0.25);
 
+  img {
+    object-fit: contain;
+  }
+
   &:hover {
     background: var(--Black-800);
   }
