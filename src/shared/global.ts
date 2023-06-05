@@ -27,6 +27,18 @@ export const GlobalStyles = createGlobalStyle`
     background: rgba(36, 36, 36, 0.25); /* Color on hover */
   }
 
+  &:-internal-autofill-selected {
+    background-color: transparent !important;
+  }
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover, 
+  &:-webkit-autofill:focus, 
+  &:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: var(--White) !important;
+  }
+
   :root {
     --Max-content-width: 1240px;
 
@@ -149,7 +161,9 @@ export const GlobalStyles = createGlobalStyle`
     font-family: "Inter";
     font-size: 16px;
     color: var(--White);
-  }
+  } 
+
+
 
   button {
     cursor: pointer;

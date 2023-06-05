@@ -1,4 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
+import { useRouter } from "next/router";
+import Image from "next/image";
 
 import bank from "@/shared/assets/icons/Bank.svg";
 import trashSimple from "@/shared/assets/icons/TrashSimple.svg";
@@ -6,11 +8,14 @@ import pencilSimple from "@/shared/assets/icons/PencilSimple.svg";
 import arrowLeft from "@/shared/assets/icons/ArrowLeft.svg";
 import floppyDisk from "@/shared/assets/icons/FloppyDisk.svg";
 import linkSimple from "@/shared/assets/icons/LinkSimple.svg";
+import warningCircle from "@/shared/assets/icons/WarningCircle.svg";
+import trashSimpleBlack from "@/shared/assets/icons/TrashSimple_Black.svg";
 
 import { ShortButton } from "@/shared/components/ShortButton";
 
 import { Container } from "./styles";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+
 import { Modal } from "@/shared/components/Modal";
 import { InputWithLabel } from "@/shared/components/InputWithLabel";
 import { DefaultButton } from "@/shared/components/DefaultButton";
@@ -22,15 +27,22 @@ interface HeroProps {
 }
 
 export function Hero({ logoImg, name, id }: HeroProps) {
-  const [showModal, setShowModal] = useState(false);
+  const router = useRouter();
+
+  const [showAccountEditModal, setShowAccountEditModal] = useState(false);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
   const [accountName, setAccountName] = useState(name);
   const [accountLogoImg, setAccountLogoImg] = useState(logoImg);
 
   const sameInformation = accountName === name && accountLogoImg === logoImg;
 
-  async function handleModalAccountEdit() {
+  async function handleEditAccount() {
     if (sameInformation) {
-      setShowModal(false);
+      setShowAccountEditModal(false);
+      return;
+    }
+
+    if (accountName === "") {
       return;
     }
 
@@ -42,7 +54,18 @@ export function Hero({ logoImg, name, id }: HeroProps) {
 
     await fetch("http://localhost:3333/account", reqOptions);
 
-    setShowModal(false);
+    setShowAccountEditModal(false);
+  }
+
+  async function handleDeleteAccount() {
+    const reqOptions = {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json", id: id },
+    };
+
+    await fetch("http://localhost:3333/account", reqOptions);
+
+    router.push("/");
   }
 
   return (
@@ -62,15 +85,19 @@ export function Hero({ logoImg, name, id }: HeroProps) {
         </div>
 
         <div className="buttons">
-          <ShortButton icon={pencilSimple} onClick={() => setShowModal(true)} />
+          <ShortButton
+            icon={pencilSimple}
+            onClick={() => setShowAccountEditModal(true)}
+          />
           <ShortButton
             color={`rgba(235, 91, 100, 0.25)`}
             icon={trashSimple}
-            onClick={() => console.log("foi")}
+            onClick={() => setShowDeleteModal(true)}
           />
         </div>
       </div>
-      {showModal && (
+      
+      {showAccountEditModal && (
         <Modal className="account-edit-modal">
           <div className="inputs">
             <InputWithLabel
@@ -92,14 +119,40 @@ export function Hero({ logoImg, name, id }: HeroProps) {
             <DefaultButton
               icon={arrowLeft}
               title="Voltar"
-              onClick={() => setShowModal(false)}
+              onClick={() => setShowAccountEditModal(false)}
               btnColor={`var(--Black-800)`}
               fontColor={`var(--White)`}
             />
             <DefaultButton
               icon={floppyDisk}
               title="Salvar alterações"
-              onClick={handleModalAccountEdit}
+              onClick={handleEditAccount}
+            />
+          </div>
+        </Modal>
+      )}
+
+      {showDeleteModal && (
+        <Modal className="account-delete-modal">
+          <div className="warning">
+            <Image src={warningCircle} width={64} height={64} alt="" />
+            <h3>
+              Esta ação não poderá ser desfeita. <br /> Tem Certeza?{" "}
+            </h3>
+          </div>
+          <div className="buttons">
+            <DefaultButton
+              icon={arrowLeft}
+              title="Voltar"
+              onClick={() => setShowDeleteModal(false)}
+              btnColor={`var(--Black-800)`}
+              fontColor={`var(--White)`}
+            />
+            <DefaultButton
+              icon={trashSimpleBlack}
+              title="Sim, quero excluir"
+              btnColor={`var(--Red-100)`}
+              onClick={handleDeleteAccount}
             />
           </div>
         </Modal>

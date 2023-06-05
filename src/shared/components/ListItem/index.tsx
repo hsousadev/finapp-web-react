@@ -12,7 +12,6 @@ import dayjs from "dayjs";
 import ptBR from "dayjs/locale/pt-br";
 
 import { Container } from "./styles";
-import { useState } from "react";
 
 interface ListItemProps {
   icon?: string;
@@ -36,18 +35,17 @@ export function ListItem({
   onClick,
 }: ListItemProps) {
   dayjs.locale(ptBR);
-  
+
   const windowSize = useWindowSize();
   const isMobile = windowSize.windowWidth <= 425;
 
   const incomeStyle = { color: `var(--Green-700)` };
+  const incomeZeroStyle = { color: `var(--White)` };
   const expenseStyle = { color: `var(--Red-100)` };
 
   const formmatedExpense = expense && formmatedNumber(expense).substring(0, 18);
   const formmatedAmount = amount && formmatedNumber(amount).substring(0, 18);
   const formmatedIncome = income && formmatedNumber(income).substring(0, 18);
-
-
 
   const statementItem =
     type === "credit" ? (
@@ -78,7 +76,11 @@ export function ListItem({
       </div>
 
       <div className="values">
-        {income && <h4 style={incomeStyle}>R${formmatedIncome}</h4>}
+        {income?.toString() && (
+          <h4 style={income === 0 ? incomeZeroStyle : incomeStyle}>
+            R${formmatedIncome}
+          </h4>
+        )}
         {expense && <h4 style={expenseStyle}>-R${formmatedExpense}</h4>}
         {amount && type === "debit" ? (
           <h4 style={expenseStyle}>-R${amount}</h4>

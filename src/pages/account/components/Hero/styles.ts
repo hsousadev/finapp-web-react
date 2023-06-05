@@ -40,6 +40,17 @@ export const Container = styled.div`
     }
   }
 
+  .account-edit-modal,
+  .account-delete-modal {
+    .buttons {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      width: 100%;
+    }
+  }
+
   .account-edit-modal {
     .inputs {
       display: flex;
@@ -50,13 +61,22 @@ export const Container = styled.div`
       width: 100%;
       gap: 32px;
     }
+  }
 
-    .buttons {
+  .account-delete-modal {
+    .warning {
       display: flex;
+      flex-direction: column;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
+      gap: 16px;
 
       width: 100%;
+
+      h3 {
+        font-weight: bold;
+        text-align: center;
+      }
     }
   }
 `;
