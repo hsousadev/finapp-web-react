@@ -3,12 +3,13 @@ import Image from "next/image";
 
 import { Container } from "./styles";
 
-interface InputWithLabel {
+interface InputWithLabelProps {
   label: string;
   icon: string;
-  setValueOnChange: Dispatch<SetStateAction<string>>;
+  setValueOnChange: Dispatch<SetStateAction<any>>;
   placeholder?: string;
-  value?: string;
+  value?: any;
+  type?: string;
 }
 
 export function InputWithLabel({
@@ -17,7 +18,8 @@ export function InputWithLabel({
   setValueOnChange,
   placeholder,
   value,
-}: InputWithLabel) {
+  type,
+}: InputWithLabelProps) {
   return (
     <Container>
       <h4>{label}</h4>
@@ -26,7 +28,7 @@ export function InputWithLabel({
         <Image src={icon} width={24} height={24} alt="" />
         <input
           id="inputWithLabel"
-          type="text"
+          type={type ? type : "text"}
           onChange={(e) => setValueOnChange(e.target.value)}
           placeholder={placeholder}
           value={value}

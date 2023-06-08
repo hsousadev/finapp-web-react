@@ -154,8 +154,8 @@ export const GlobalStyles = createGlobalStyle`
 
     gap: 4px;
     border: 1px solid var(--Black-800);
-    padding: 12px 16px;
     border-radius: 16px;
+    padding: 12px 16px;
     color: var(--White);
 
     font-family: "Inter";
@@ -163,7 +163,20 @@ export const GlobalStyles = createGlobalStyle`
     color: var(--White);
   } 
 
+  select {
+    appearance: none;
+    outline: none;
+    background-color: transparent;
+    border: none;
 
+    color: var(--White);
+    font-family: "Inter";
+    font-size: 16px;
+
+    option {
+      background-color: var(--Black-800);
+    }
+  }
 
   button {
     cursor: pointer;

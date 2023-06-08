@@ -60,3 +60,30 @@ export const Container = styled.div`
     }
   }
 `;
+
+export const ItemModalContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .item-modal {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    .item-info {
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      flex-direction: column;
+      gap: 16px;
+
+      div {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 8px;
+      }
+    }
+  }
+`;

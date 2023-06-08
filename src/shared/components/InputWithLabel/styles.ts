@@ -5,6 +5,7 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
+
   width: 100%;
 
   > h4 {
@@ -30,6 +31,7 @@ export const Container = styled.div`
       border: none;
       padding: 0;
       width: 100%;
+      border-radius: 0;
     }
   }
 `;

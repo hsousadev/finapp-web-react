@@ -1,4 +1,8 @@
 export interface StatementProps {
+  Account: {
+    logoImg: string;
+    name: string;
+  };
   id: string;
   accountId: string;
   description: string;

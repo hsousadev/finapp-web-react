@@ -1,13 +1,16 @@
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
+import { ShortButton } from "../ShortButton";
+
 import { ListItem } from "@/shared/components/ListItem";
+
 import { StatementProps } from "@/shared/types/StatementProps";
+import { AccountProps } from "@/shared/types/AccountProps";
+
 import x from "@/shared/assets/icons/X.svg";
 
 import { Container } from "./styles";
-import { AccountProps } from "@/shared/types/AccountProps";
-import { ShortButton } from "../ShortButton";
 
 interface StatementListProps {
   name: string;
@@ -86,11 +89,14 @@ export function StatementList({
       <div className="list">
         {statementData?.map((item) => (
           <ListItem
+            id={item.id}
             key={item.id}
             text={item.description}
             amount={item.amount}
             type={item.type}
             createdAt={item.created_at}
+            accountId={item.accountId}
+            Account={item.Account}
           />
         ))}
       </div>

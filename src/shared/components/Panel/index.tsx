@@ -14,7 +14,12 @@ interface PanelProps {
   onClickButton?: () => void;
 }
 
-export function Panel({ accountName, balance, expenses, onClickButton}: PanelProps) {
+export function Panel({
+  accountName,
+  balance,
+  expenses,
+  onClickButton,
+}: PanelProps) {
   const router = useRouter();
 
   const isHome = router.pathname === "/";
@@ -35,9 +40,17 @@ export function Panel({ accountName, balance, expenses, onClickButton}: PanelPro
       </div>
 
       {isHome ? (
-        <DefaultButton icon={plus} title="Adicionar instituição" onClick={onClickButton} />
+        <DefaultButton
+          icon={plus}
+          title="Adicionar instituição"
+          onClick={onClickButton}
+        />
       ) : (
-        <DefaultButton icon={plus} title="Nova operação" />
+        <DefaultButton
+          icon={plus}
+          title="Nova operação"
+          onClick={onClickButton}
+        />
       )}
     </Container>
   );

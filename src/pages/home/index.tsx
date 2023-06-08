@@ -33,6 +33,8 @@ export function Home() {
   const [showNewAccountModal, setShowNewAccountModal] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  console.log("allStatements", allStatements)
+
   async function handleNewAccountCreation() {
     setLoading(true);
 

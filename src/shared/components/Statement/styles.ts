@@ -20,16 +20,13 @@ export const Container = styled.div`
       justify-content: center;
       gap: 8px;
 
-      p {
-        color: var(--Red-100);
-      }
-
       h4 {
         font-weight: bold;
       }
 
       input {
         width: 128px;
+        border-radius: 16px;
       }
     }
   }
