@@ -36,4 +36,19 @@ export const Container = styled.div`
     height: 248px;
     overflow-y: scroll;
   }
+
+  @media (max-width: 540px) {
+    .head {
+      flex-direction: column;
+      margin-bottom: 16px;
+
+      h2 {
+        margin-bottom: 8px;
+      }
+
+      .search-by-date input {
+        height: 16px;
+      }
+    }
+  }
 `;

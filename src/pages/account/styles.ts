@@ -43,4 +43,26 @@ export const Container = styled.div`
       }
     }
   }
+
+  @media (max-width: 540px) {
+    .account-edit-modal {
+      img {
+        width: 20px;
+        height: 20px;
+      }
+
+      .select {
+        height: 48px;
+
+        select {
+          height: 48px !important;
+        }
+      }
+
+      .input-div {
+        width: 90%;
+        height: 16px;
+      }
+    }
+  }
 `;

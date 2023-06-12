@@ -53,7 +53,11 @@ export const Container = styled.div<ContainerProps>`
     }
 
     @media (max-width: 540px) {
-      width: 80%;
+      width: 90%;
     }
+  }
+
+  @media (max-width: 540px) {
+    width: 100%;
   }
 `;

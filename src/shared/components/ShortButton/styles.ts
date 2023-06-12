@@ -27,4 +27,12 @@ export const Container = styled.button`
     opacity: 50%;
     transition: all 0.4s ease-in-out;
   }
+
+
+  @media(max-width: 540px) {
+    img {
+      width: 16px;
+      height: 16px;
+    }
+  }
 `;

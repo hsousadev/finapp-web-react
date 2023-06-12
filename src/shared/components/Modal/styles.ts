@@ -71,4 +71,15 @@ export const Content = styled.div`
 
     width: 100%;
   }
+
+  @media (max-width: 780px) {
+    width: 70%;
+  }
+
+  @media (max-width: 540px) {
+    .buttons {
+      flex-direction: column-reverse;
+      gap: 16px;
+    }
+  }
 `;

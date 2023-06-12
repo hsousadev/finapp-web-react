@@ -32,5 +32,7 @@ export const Container = styled.div`
     padding: 16px;
   }
 
-
+  @media (max-width: 540px) {
+    width: 80%;
+  }
 `;

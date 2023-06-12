@@ -40,6 +40,7 @@ export const Container = styled.div`
     .incomes-and-expenses {
       flex-direction: column;
       align-items: center;
+      width: 100%;
     }
   }
 `;

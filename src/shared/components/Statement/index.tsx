@@ -81,6 +81,7 @@ export function StatementList({
           <input
             type="date"
             id="dateInput"
+            placeholder="MM/DD/YYYY"
             onChange={(e) => setDate(e.target.value)}
           />
         </div>

@@ -43,4 +43,24 @@ export const Container = styled.div`
       gap: 8px;
     }
   }
+
+  @media (max-width: 540px) {
+    margin-top: 32px;
+
+    .account {
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      width: 100%;
+
+      .logo-and-name {
+        gap: 12px;
+
+        img {
+          width: 32px;
+          height: 32px;
+        }
+      }
+    }
+  }
 `;

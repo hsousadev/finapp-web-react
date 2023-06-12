@@ -93,6 +93,33 @@ export const GlobalStyles = createGlobalStyle`
       }
     }
 
+    @media (max-width: 540px) {
+      h1 {
+        font-weight: 700;
+        font-size: 24px;
+      }
+
+      h2 {
+        font-weight: 400;
+        font-size: 16px;
+      }
+
+      h3 {
+        font-weight: 700;
+        font-size: 14px;
+      }
+
+      h4 {
+        font-weight: 400;
+        font-size: 12px;
+      }
+
+      p {
+        font-weight: 400;
+        font-size: 10px;
+      }
+    }
+
     @media(max-width: 425px) {
       padding: 0 16px;
     }
