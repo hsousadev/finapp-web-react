@@ -1,7 +1,7 @@
 # FinanceApp.js
 App de lançamentos de finanças. Que reuni várias contas bancárias em um só lugar. 
 
-![financeapp-github-cover](https://github.com/justhenrique/finapp-web-react/assets/54003876/10ca64d4-c7b7-483d-8114-529c9f601455)
+![financeapp-portfolio-cover](https://github.com/justhenrique/finapp-web-react/assets/54003876/e2ba5314-b4d0-4450-b6fc-53b1041fef10)
 
 ## 🚀 Build
 
